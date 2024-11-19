@@ -79,7 +79,7 @@
                             <div class="card-body p-4"><img src="{{ asset('storage/' . $drink->picture) }}" alt=""
                                     class="img-fluid d-block mx-auto mb-3">
                                 <div class="d-flex justify-content-between">
-                                <h5 class="col-11 text-banner text-primary text-capitalize">{{ $drink->name }}</h5>
+                                    <h5 class="col-11 text-banner text-primary text-capitalize">{{ $drink->name }}</h5>
                                     <div class="app-card-actions">
                                         <div class="dropdown">
                                             <div class="dropdown-toggle no-toggle-arrow mx-3" data-bs-toggle="dropdown"
@@ -89,7 +89,8 @@
                                             <ul class="dropdown-menu">
                                                 <input type="hidden" value="{{ $drink->id }}" id="menu_id">
                                                 <li>
-                                                    <a class="dropdown-item" id="show-menu" class="btnbtn-primary" data-bs-toggle="modal" data-bs-target="#show" role="button">
+                                                    <a class="dropdown-item" id="show-menu" class="btnbtn-primary"
+                                                        data-bs-toggle="modal" data-bs-target="#show" role="button">
                                                         <i class="fa-solid fa-eye mx-2"></i> View
                                                     </a>
                                                 </li>
@@ -128,10 +129,10 @@
                 @foreach ($dessert as $item)
                     <div class="col-6 col-md-4 col-xl-3 col-xxl-2 mb-4 mb-lg-0">
                         <div class="card rounded shadow-sm h-100 app-card-doc border-0 card-menu">
-                            <div class="card-body p-4"><img src="{{ asset('storage/' . $item->picture) }}" alt=""
-                                    class="img-fluid d-block mx-auto mb-3">
+                            <div class="card-body p-4"><img src="{{ asset('storage/' . $item->picture) }}"
+                                    alt="" class="img-fluid d-block mx-auto mb-3">
                                 <div class="d-flex justify-content-between">
-                                <h5 class="col-11 text-banner text-primary text-capitalize">{{ $item->name }}</h5>
+                                    <h5 class="col-11 text-banner text-primary text-capitalize">{{ $item->name }}</h5>
                                     <div class="app-card-actions">
                                         <div class="dropdown">
                                             <div class="dropdown-toggle no-toggle-arrow mx-3" data-bs-toggle="dropdown"
@@ -141,7 +142,8 @@
                                             <ul class="dropdown-menu">
                                                 <input type="hidden" value="{{ $item->id }}" id="menu_id">
                                                 <li>
-                                                    <a class="dropdown-item" id="show-menu" class="btnbtn-primary" data-bs-toggle="modal" data-bs-target="#show" role="button">
+                                                    <a class="dropdown-item" id="show-menu" class="btnbtn-primary"
+                                                        data-bs-toggle="modal" data-bs-target="#show" role="button">
                                                         <i class="fa-solid fa-eye mx-2"></i> View
                                                     </a>
                                                 </li>
@@ -174,9 +176,9 @@
                 @endforeach
             </div>
         </div>
-        
-        <div class="modal fade" style="margin-top: 9%; margin-left: 9%;" data-bs-backdrop="static" data-bs-keyboard="false"
-            id="show" tabindex="-1" aria-hidden="true">
+
+        <div class="modal fade" style="margin-top: 9%; margin-left: 9%;" data-bs-backdrop="static"
+            data-bs-keyboard="false" id="show" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">

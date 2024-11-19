@@ -63,7 +63,8 @@
                                     srcset="" width="150">
                                 <div class="d-flex justify-content-center flex-column">
                                     <div class="product">
-                                        <h5 style="font-size: 16px; width: 100px;" class="text-break">{{ $food->name }}</h5>
+                                        <h5 style="font-size: 16px; width: 100px;" class="text-break">{{ $food->name }}
+                                        </h5>
                                         <h6 style="font-size: 13px;">{{ number_format($food->price, 0, ',', '.') }}</h6>
                                     </div>
                                     <div class="qty d-flex mt-3">
@@ -89,7 +90,8 @@
                                     srcset="" width="150">
                                 <div class="d-flex justify-content-center flex-column">
                                     <div class="product">
-                                        <h5 style="font-size: 16px; width: 100px;" class="text-break">{{ $drink->name }}</h5>
+                                        <h5 style="font-size: 16px; width: 100px;" class="text-break">{{ $drink->name }}
+                                        </h5>
                                         <h6 style="font-size: 13px;">{{ number_format($drink->price, 0, ',', '.') }}</h6>
                                     </div>
                                     <div class="qty d-flex mt-3">
@@ -115,8 +117,10 @@
                                     srcset="" width="150">
                                 <div class="d-flex justify-content-center flex-column">
                                     <div class="product">
-                                        <h5 style="font-size: 16px; width: 100px;" class="text-break">{{ $dessert->name }}</h5>
-                                        <h6 style="font-size: 13px;">{{ number_format($dessert->price, 0, ',', '.') }}</h6>
+                                        <h5 style="font-size: 16px; width: 100px;" class="text-break">{{ $dessert->name }}
+                                        </h5>
+                                        <h6 style="font-size: 13px;">{{ number_format($dessert->price, 0, ',', '.') }}
+                                        </h6>
                                     </div>
                                     <div class="qty d-flex mt-3">
                                         <button class="border-0 rounded bg-transparent RemovetoCart"><i
@@ -204,7 +208,7 @@
                                                 srcset="" data-table="not-selected" data-number="A1">
                                             <p
                                                 class="position-absolute top-50 start-50 translate-middle fw-bold text-tables">
-                                                A1</p>
+                                                RT 001</p>
                                         </div>
                                         <div class="tab-container position-relative">
                                             <img class="table-A" src="/images/table/meja4.png" width="120"

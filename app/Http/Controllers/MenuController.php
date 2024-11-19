@@ -24,7 +24,7 @@ class MenuController extends Controller
         }
 
         return view('menu.index', [
-            'foods' => $menu->where('category','food')->latest()->get(),
+            'foods' => $menu->where('category', 'food')->latest()->get(),
             'drinks' => $menu->where('category', 'drink')->latest()->get(),
             'dessert' => $menu->where('category', 'dessert')->latest()->get()
         ]);
@@ -55,12 +55,12 @@ class MenuController extends Controller
     public function store(Request $request)
     {
         $validateddata = $request->validate([
-           'name' => 'required|min:3',
-           'modal' => 'required|regex:/([0-9]+[.,]*)+/',
-           'price' => 'required|regex:/([0-9]+[.,]*)+/|gte:modal',
-           'category' => 'required',
-           'image' => 'required|image|file|max:3048',
-           'description' => 'required'
+            'name' => 'required|min:3',
+            'modal' => 'required|regex:/([0-9]+[.,]*)+/',
+            'price' => 'required|regex:/([0-9]+[.,]*)+/|gte:modal',
+            'category' => 'required',
+            'image' => 'required|image|file|max:30048',
+            'description' => 'required'
         ]);
 
 
@@ -72,11 +72,11 @@ class MenuController extends Controller
 
         $activity = [
             'user_id' => Auth::id(),
-            'action' => 'added a menu '.strtolower($request->name)
+            'action' => 'added a menu ' . strtolower($request->name)
         ];
 
         ActivityLog::create($activity);
-        return redirect('/menu')->with('success','New menu has been added !');
+        return redirect('/menu')->with('success', 'New menu has been added !');
     }
 
     /**
@@ -106,7 +106,7 @@ class MenuController extends Controller
         if ($user->level_id === 2 || $user->level_id === 3) {
             return redirect()->back();
         }
-        
+
         return view('menu.edit', [
             'menu' => $menu
         ]);
@@ -126,7 +126,7 @@ class MenuController extends Controller
             'modal' => 'required|regex:/([0-9]+[.,]*)+/',
             'price' => 'required|regex:/([0-9]+[.,]*)+/|gte:modal',
             'category' => 'required',
-            'picture' => 'image|file|max:3048',
+            'picture' => 'image|file|max:30048',
             'description' => 'required'
         ]);
 
@@ -136,15 +136,15 @@ class MenuController extends Controller
 
         if ($request->file('picture')) {
             Storage::delete($menu->picture);
-            $validateddata['picture'] = $request->file('picture')->store('menu'); 
+            $validateddata['picture'] = $request->file('picture')->store('menu');
         }
-        
+
         Menu::where('id', $menu->id)
-             ->update($validateddata);
+            ->update($validateddata);
 
         $activity = [
             'user_id' => Auth::id(),
-            'action' => 'edited a menu '.strtolower($menu->name)
+            'action' => 'edited a menu ' . strtolower($menu->name)
         ];
         ActivityLog::create($activity);
 
@@ -159,15 +159,13 @@ class MenuController extends Controller
      */
     public function destroy(Menu $menu)
     {
-        Storage::delete($menu->picture);   
+        Storage::delete($menu->picture);
         $menu->destroy($menu->id);
         $activity = [
             'user_id' => Auth::id(),
-            'action' => 'deleted a menu '.strtolower($menu->name)
+            'action' => 'deleted a menu ' . strtolower($menu->name)
         ];
         ActivityLog::create($activity);
         return redirect('/menu');
     }
-
 }
-
